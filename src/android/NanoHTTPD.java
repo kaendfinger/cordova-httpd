@@ -1010,8 +1010,9 @@ public class NanoHTTPD
 				// Get MIME type from file name extension, if possible
 				String mime = null;
 				int dot = f.getCanonicalPath().lastIndexOf( '.' );
+				String ext = f.getCanonicalPath().substring( dot + 1 ).toLowerCase();
 				if ( dot >= 0 )
-					mime = (String)theMimeTypes.get( f.getCanonicalPath().substring( dot + 1 ).toLowerCase());
+					mime = (String)theMimeTypes.get(ext);
 				if ( mime == null )
 					mime = MIME_DEFAULT_BINARY;
 
@@ -1114,7 +1115,7 @@ public class NanoHTTPD
 						"jpg		image/jpeg "+
 						"jpeg		image/jpeg "+
 						"png		image/png "+
-						"woff   application/font-woff"+
+						"woff   application/font-woff "+
 						"mp3		audio/mpeg "+
 						"m3u		audio/mpeg-url " +
 						"mp4		video/mp4 " +
