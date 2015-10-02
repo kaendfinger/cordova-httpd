@@ -1021,6 +1021,8 @@ public class NanoHTTPD
 				if ( mime == null )
 					mime = MIME_DEFAULT_BINARY;
 
+				r.mimeType = mime;
+
 				// Calculate etag
 				String etag = Integer.toHexString((f.getAbsolutePath() + f.lastModified() + "" + f.length()).hashCode());
 
