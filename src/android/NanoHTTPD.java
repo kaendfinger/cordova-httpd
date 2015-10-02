@@ -1013,6 +1013,11 @@ public class NanoHTTPD
 				String ext = f.getCanonicalPath().substring( dot + 1 ).toLowerCase();
 				if ( dot >= 0 )
 					mime = (String)theMimeTypes.get(ext);
+
+				if (uri.endsWith(".woff")) {
+					mime = "application/font-woff";
+				}
+
 				if ( mime == null )
 					mime = MIME_DEFAULT_BINARY;
 
