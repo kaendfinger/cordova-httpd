@@ -1187,8 +1187,6 @@ static NSMutableArray *recentNonces;
 			NSString *contentLengthStr = [NSString stringWithFormat:@"%qu", contentLength];
 			[response setHeaderField:@"Content-Length" value:contentLengthStr];
 		}
-
-    [response setHeaderField:@"Access-Control-Allow-Origin" value:@"*"];
 	}
 	else
 	{
@@ -1201,6 +1199,8 @@ static NSMutableArray *recentNonces;
 			response = [self newMultiRangeResponse:contentLength];
 		}
 	}
+
+  [response setHeaderField:@"Access-Control-Allow-Origin" value:@"*"];
 
 	BOOL isZeroLengthResponse = !isChunked && (contentLength == 0);
 
